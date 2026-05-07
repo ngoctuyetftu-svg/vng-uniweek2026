@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VNG University Week 2026 · Planning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f4ec;
+    --surface:#ffffff;
+    --ink:#0d1f3a;
+    --ink-2:#1f2a44;
+    --ink-3:#525c70;
+    --ink-4:#7a8294;
+    --line:#e8e3d6;
+    --line-2:#efebe0;
+    --accent:#0047ff;
+    --accent-2:#0033cc;
+    --accent-soft:#eaf0ff;
+    --accent-glow: rgba(0, 71, 255, .12);
+    --green:#0a8a4a;
+    --amber:#b45309;
+    --radius:14px;
+    --radius-lg:20px;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 14px rgba(15, 23, 42, .06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-lg: 0 12px 40px rgba(15,23,42,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope', -apple-system, system-ui, sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+    min-height:100vh;
+  }
+  /* pastel aurora gradient layer */
+  body::after{
+    content:'';
+    position:fixed;inset:0;
+    background:
+      radial-gradient(ellipse 55% 45% at 12% 8%, rgba(255, 200, 220, 0.45), transparent 65%),
+      radial-gradient(ellipse 50% 55% at 88% 12%, rgba(195, 220, 255, 0.55), transparent 65%),
+      radial-gradient(ellipse 60% 50% at 90% 88%, rgba(210, 232, 215, 0.40), transparent 65%),
+      radial-gradient(ellipse 45% 50% at 8% 92%, rgba(255, 230, 195, 0.38), transparent 65%);
+    pointer-events:none;
+    z-index:0;
+  }
+  /* subtle dot grid background */
+  body::before{
+    content:'';
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(13, 31, 58, .055) 1px, transparent 0);
+    background-size:26px 26px;
+    pointer-events:none;
+    z-index:1;
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+  }
+  .mono{font-family:'JetBrains Mono', ui-monospace, monospace;}
+  .serif{font-family:'Fraunces', serif; font-weight:400; letter-spacing:-.01em;}
+  h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:500; letter-spacing:-.02em; line-height:1.08; color:var(--ink); font-optical-sizing:auto;}
+
+  /* ---------- NAV ---------- */
+  nav.top{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(180%) blur(14px);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    background:rgba(247, 244, 236, .82);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1280px;margin:0 auto;padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.01em;font-size:15px;}
+  .brand-mark{
+    width:26px;height:26px;border-radius:7px;
+    background:linear-gradient(135deg, var(--accent) 0%, #6a8eff 100%);
+    display:grid;place-items:center;color:white;font-weight:700;font-size:13px;
+    box-shadow:0 2px 8px var(--accent-glow);
+  }
+  .nav-links{display:flex;gap:6px;flex-wrap:wrap}
+  .nav-links a{
+    color:var(--ink-3);text-decoration:none;font-size:13px;
+    padding:7px 12px;border-radius:8px;transition:all .2s;
+  }
+  .nav-links a:hover{color:var(--ink);background:var(--line-2)}
+  .nav-status{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-3);}
+  .pulse{width:7px;height:7px;border-radius:50%;background:#f59e0b;box-shadow:0 0 0 0 #f59e0b;animation:pulse 2s infinite}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(245,158,11,.6)}
+    70%{box-shadow:0 0 0 8px rgba(245,158,11,0)}
+    100%{box-shadow:0 0 0 0 rgba(245,158,11,0)}
+  }
+
+  /* ---------- LAYOUT ---------- */
+  main{position:relative;z-index:2;}
+  section{
+    max-width:1280px;margin:0 auto;
+    padding:88px 28px 32px;
+    scroll-margin-top:64px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--accent);
+    padding:5px 10px;border-radius:999px;
+    background:var(--accent-soft);
+    border:1px solid #d8e3ff;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);}
+  h1,h2,h3,h4{letter-spacing:-.025em;font-weight:600;line-height:1.1;color:var(--ink)}
+  h2.section-title{font-size:clamp(34px,4.5vw,52px);font-weight:600;margin-bottom:14px;}
+  h2.section-title .accent{color:var(--accent);}
+  .section-sub{color:var(--ink-3);max-width:640px;font-size:16px;line-height:1.55;}
+  .section-sub-list{list-style:none;color:var(--ink-3);font-size:16px;line-height:1.6;max-width:640px;display:flex;flex-direction:column;gap:6px;}
+  .section-sub-list li{display:flex;gap:10px;align-items:flex-start;}
+  .section-sub-list li::before{content:'';flex-shrink:0;width:5px;height:5px;border-radius:50%;background:var(--accent);margin-top:11px;}
+  .section-head{margin-bottom:48px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding-top:60px; padding-bottom:48px;
+    display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:start;
+  }
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:500;
+    color:var(--ink-3);
+    padding:7px 13px;border-radius:999px;background:var(--surface);
+    border:1px solid var(--line);box-shadow:var(--shadow-sm);
+    margin-bottom:24px;
+  }
+  .hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-glow)}
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-size:clamp(46px,6.8vw,88px);
+    font-weight:500;letter-spacing:-.035em;
+    line-height:.98;margin-bottom:28px;
+    font-optical-sizing:auto;
+  }
+  .hero h1 .hero-blue{
+    color:var(--accent);font-weight:500;
+  }
+  .hero h1 .hero-italic{
+    font-style:italic;font-weight:400;
+    color:var(--ink);letter-spacing:-.03em;
+  }
+  .hero p.lead{
+    font-size:18px;line-height:1.55;color:var(--ink-3);max-width:560px;margin-bottom:34px;
+  }
+  .hero p.lead strong{color:var(--ink);font-weight:500;}
+  .info-bar{
+    display:grid;grid-template-columns:repeat(3, 1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .info-bar .item{
+    background:var(--surface);padding:14px 16px;
+  }
+  .info-bar .label{
+    font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;
+    color:var(--ink-4);letter-spacing:.1em;margin-bottom:4px;
+  }
+  .info-bar .value{font-size:14px;font-weight:500;color:var(--ink);}
+  .info-bar .value .badge-status{
+    display:inline-flex;align-items:center;gap:6px;
+    background:#fff7ed;color:#c2410c;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:500;border:1px solid #fed7aa;
+  }
+  .info-bar .value .badge-status::before{content:'';width:5px;height:5px;border-radius:50%;background:#c2410c;}
+
+  /* KPI VERTICAL CARDS — number on top, label below */
+  .kpi-stack{display:flex;flex-direction:column;gap:14px;}
+  .kpi-card{
+    position:relative;
+    background:var(--surface);
+    border:1px solid rgba(13,31,58,.06);
+    border-radius:18px;
+    padding:22px 26px;
+    display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+    transition:all .35s cubic-bezier(.2,.8,.2,1);
+    box-shadow:0 1px 2px rgba(20,20,30,.04), 0 6px 20px rgba(20,20,30,.05);
+    overflow:hidden;
+  }
+  .kpi-card::before{
+    content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);
+    transform:scaleY(0);transform-origin:bottom;transition:transform .4s ease;
+  }
+  .kpi-card:hover{transform:translateY(-2px);border-color:rgba(0,71,255,.2);box-shadow:0 2px 4px rgba(20,20,30,.05), 0 12px 28px rgba(20,20,30,.08);}
+  .kpi-card:hover::before{transform:scaleY(1);transform-origin:top;}
+  .kpi-card .num{
+    font-family:'Fraunces',serif;font-size:42px;font-weight:500;letter-spacing:-.035em;line-height:1;color:var(--ink);
+    font-optical-sizing:auto;display:flex;align-items:baseline;
+  }
+  .kpi-card .num .unit{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;font-weight:600;color:var(--ink-4);
+    margin-left:6px;letter-spacing:.1em;text-transform:uppercase;
+    align-self:flex-start;margin-top:6px;
+  }
+  .kpi-card .lbl{
+    font-size:10.5px;color:var(--ink-3);text-align:left;line-height:1.4;
+    font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+  }
+  .kpi-card .lbl strong{
+    display:block;color:var(--ink);font-weight:600;font-size:11px;
+    letter-spacing:.14em;
+  }
+  .kpi-card[data-tooltip]{cursor:help;}
+  .kpi-card[data-tooltip]::after{
+    content:attr(data-tooltip);
+    position:absolute;left:50%;bottom:calc(100% + 10px);transform:translateX(-50%) translateY(4px);
+    background:var(--ink);color:#fff;padding:7px 11px;border-radius:7px;font-size:11px;font-family:'JetBrains Mono',monospace;
+    white-space:nowrap;opacity:0;pointer-events:none;transition:all .2s;z-index:10;
+  }
+  .kpi-card[data-tooltip]:hover::after{opacity:1;transform:translateX(-50%) translateY(0);}
+  .kpi-up{color:var(--green) !important;}
+  .kpi-up .arrow{display:inline-block;font-size:.5em;vertical-align:.5em;margin-left:4px;font-family:'Manrope',sans-serif;}
+
+  /* ---------- COMMON CARD ---------- */
+  .card{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm);
+    transition:all .3s ease;
+  }
+  .card:hover{box-shadow:var(--shadow-md);}
+
+  /* ---------- OVERVIEW ---------- */
+  .overview-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start;}
+  .obj-list{display:flex;flex-direction:column;gap:14px;margin-top:8px;}
+  .obj-item{
+    display:flex;gap:16px;padding:18px 20px;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    transition:all .25s;
+  }
+  .obj-item:hover{border-color:#c4d2ff;background:linear-gradient(180deg, #fbfcff 0%, var(--surface) 100%);}
+  .obj-num{
+    width:30px;height:30px;flex-shrink:0;border-radius:8px;
+    background:var(--accent-soft);color:var(--accent);
+    font-family:'JetBrains Mono',monospace;font-weight:600;font-size:12px;
+    display:grid;place-items:center;
+  }
+  .obj-text{font-size:14.5px;color:var(--ink-2);line-height:1.55;}
+
+  .metric-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px;
+  }
+  .metric-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;display:flex;flex-direction:column;gap:6px;
+    transition:all .25s;
+  }
+  .metric-card:hover{border-color:var(--accent);transform:translateY(-1px);}
+  .metric-card .v{font-size:24px;font-weight:600;letter-spacing:-.025em;color:var(--ink);}
+  .metric-card .v.green{color:var(--green);}
+  .metric-card .v.blue{color:var(--accent);}
+  .metric-card .l{font-size:12px;color:var(--ink-3);line-height:1.4;}
+
+  .audience-block{margin-top:40px;}
+  .audience-block h3{font-size:18px;font-weight:600;margin-bottom:18px;}
+  .audience-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .aud-group{
+    padding:18px;border-radius:var(--radius);background:var(--surface);
+    border:1px solid var(--line);transition:all .25s;cursor:pointer;
+  }
+  .aud-group:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--shadow-md);}
+  .aud-group .lbl{
+    font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;
+    color:var(--ink-4);letter-spacing:.1em;margin-bottom:10px;
+  }
+  .aud-group h4{font-size:14px;font-weight:600;margin-bottom:10px;color:var(--ink);}
+  .aud-group .schools{display:flex;flex-wrap:wrap;gap:5px;}
+  .aud-group .schools span{
+    font-size:11.5px;font-family:'JetBrains Mono',monospace;font-weight:500;
+    padding:3px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent);
+    border:1px solid #d8e3ff;
+  }
+  .aud-group.priority-1 .schools span{background:var(--accent-soft);}
+  .aud-group.priority-2 .schools span{background:#f0fdf4;color:#166534;border-color:#bbf7d0;}
+  .aud-group.priority-3 .schools span{background:#fef3c7;color:#92400e;border-color:#fde68a;}
+
+  /* toggle */
+  .toggle-row{display:flex;align-items:center;gap:12px;margin-top:20px;}
+  .seg-toggle{
+    display:inline-flex;background:var(--line-2);border-radius:999px;padding:3px;border:1px solid var(--line);
+  }
+  .seg-toggle button{
+    background:transparent;border:none;cursor:pointer;
+    padding:7px 18px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:500;
+    color:var(--ink-3);border-radius:999px;transition:all .25s;
+  }
+  .seg-toggle button.active{background:var(--ink);color:#fff;}
+
+  /* ---------- CONTENT DIRECTION (merged) ---------- */
+  .content-summary{
+    display:grid;grid-template-columns:repeat(6, 1fr);gap:1px;
+    margin-bottom:28px;
+    background:var(--line);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .content-summary .item{
+    background:linear-gradient(180deg, #fbfcff 0%, var(--surface) 100%);
+    padding:22px 20px;display:flex;flex-direction:column;gap:6px;
+    transition:background .3s;
+  }
+  .content-summary .item:hover{background:#f4f7ff;}
+  .content-summary .item .v{
+    font-family:'Fraunces',serif;font-size:30px;font-weight:500;letter-spacing:-.025em;color:var(--ink);line-height:1;
+  }
+  .content-summary .item .l{
+    font-size:11px;color:var(--ink-4);font-family:'JetBrains Mono',monospace;
+    text-transform:uppercase;letter-spacing:.08em;font-weight:500;
+  }
+
+  .tour-list{display:flex;flex-direction:column;gap:10px;margin-top:18px;}
+  .tour-card{
+    display:grid;grid-template-columns:140px 200px 1fr 90px;gap:24px;align-items:center;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 24px;
+    transition:all .3s cubic-bezier(.2,.8,.2,1);
+    position:relative;overflow:hidden;
+  }
+  .tour-card::before{
+    content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:var(--accent);opacity:0;transition:opacity .3s;
+  }
+  .tour-card:hover{
+    transform:translateY(-1px);border-color:#cbd6ff;box-shadow:var(--shadow-md);
+  }
+  .tour-card:hover::before{opacity:1;}
+  .tour-card.hidden{display:none;}
+  .tour-card.combined{
+    background:linear-gradient(180deg, #fbfcff 0%, var(--surface) 100%);
+    border-color:#d8e3ff;
+  }
+
+  .tour-meta{display:flex;flex-direction:column;gap:6px;}
+  .tour-num{
+    font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;
+    color:var(--ink-4);text-transform:uppercase;letter-spacing:.12em;
+    display:flex;align-items:center;gap:8px;
+  }
+  .combined-pill{
+    font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;
+    padding:2px 6px;border-radius:5px;background:var(--accent);color:#fff;letter-spacing:.06em;
+  }
+  .tour-date{
+    font-family:'Fraunces',serif;font-size:22px;font-weight:500;letter-spacing:-.02em;
+    color:var(--ink);line-height:1;display:flex;align-items:baseline;gap:8px;
+  }
+  .tour-date span{
+    font-family:'Manrope',sans-serif;font-size:11px;font-weight:500;
+    color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;
+  }
+  .tour-pm{
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ink-4);
+    line-height:1.4;
+  }
+
+  .tour-school h3{
+    font-family:'Fraunces',serif;font-size:24px;font-weight:600;letter-spacing:-.025em;
+    color:var(--ink);margin-bottom:6px;line-height:1;
+  }
+  .tour-school .tour-dept{
+    font-size:12px;color:var(--ink-3);line-height:1.5;
+  }
+
+  .tour-content{display:flex;flex-direction:column;gap:8px;align-items:flex-start;}
+  .tour-content .bu-tag{
+    font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;
+    padding:3px 9px;border-radius:6px;letter-spacing:.05em;text-transform:uppercase;
+  }
+  .tour-topic{
+    font-family:'Fraunces',serif;font-size:16px;font-weight:500;letter-spacing:-.01em;
+    color:var(--ink);line-height:1.35;
+  }
+  .tour-speaker{font-size:12px;color:var(--ink-3);}
+  .tour-speaker strong{color:var(--ink);font-weight:600;}
+
+  .tour-pax{
+    text-align:right;
+  }
+  .tour-pax .pax-num{
+    font-family:'Fraunces',serif;font-size:32px;font-weight:500;letter-spacing:-.03em;
+    color:var(--accent);line-height:1;
+  }
+  .tour-pax .pax-lbl{
+    font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-4);
+    text-transform:uppercase;letter-spacing:.08em;margin-top:4px;
+  }
+
+  /* keep these for any other reference */
+  .schedule-summary{
+    display:flex;gap:30px;margin-bottom:28px;padding:20px 24px;
+    background:linear-gradient(90deg, var(--surface), #fbfcff);
+    border:1px solid var(--line);border-radius:var(--radius);
+  }
+  .schedule-summary .item{display:flex;flex-direction:column;gap:2px;}
+  .schedule-summary .item .v{font-size:22px;font-weight:600;letter-spacing:-.02em;}
+  .schedule-summary .item .l{font-size:11px;color:var(--ink-4);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;}
+
+  .accordion{display:flex;flex-direction:column;gap:8px;}
+  .acc-item{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;transition:all .3s;
+  }
+  .acc-item.open{border-color:#cbd6ff;box-shadow:var(--shadow-md);}
+  .acc-head{
+    width:100%;background:none;border:none;cursor:pointer;
+    display:grid;grid-template-columns:120px 1fr auto auto;gap:24px;align-items:center;
+    padding:18px 22px;text-align:left;
+    transition:background .2s;
+  }
+  .acc-head:hover{background:#fafafa;}
+  .acc-date{
+    font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--ink);
+    display:flex;flex-direction:column;
+  }
+  .acc-date small{font-size:10px;font-weight:400;color:var(--ink-4);text-transform:uppercase;letter-spacing:.08em;}
+  .acc-summary{font-size:14px;color:var(--ink-3);}
+  .acc-summary strong{color:var(--ink);font-weight:500;margin-right:6px;}
+  .acc-tour-count{
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+    padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent);
+    border:1px solid #d8e3ff;
+  }
+  .acc-chev{width:20px;height:20px;color:var(--ink-3);transition:transform .3s;}
+  .acc-item.open .acc-chev{transform:rotate(180deg);color:var(--accent);}
+  .acc-body{
+    max-height:0;overflow:hidden;
+    transition:max-height .4s ease;
+  }
+  .acc-item.open .acc-body{max-height:1200px;}
+  .acc-body-inner{padding:0 22px 22px 22px;border-top:1px solid var(--line-2);}
+  .session-row{
+    display:grid;grid-template-columns:130px 90px 1fr 130px 100px;gap:18px;align-items:center;
+    padding:14px 0;border-bottom:1px solid var(--line-2);
+  }
+  .session-row:last-child{border-bottom:none;}
+  .session-row .time{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-3);}
+  .session-row .school{font-weight:600;font-size:14.5px;letter-spacing:-.01em;}
+  .session-row .dept{font-size:12.5px;color:var(--ink-3);line-height:1.4;}
+  .session-row .pm{font-size:12px;color:var(--ink-4);font-family:'JetBrains Mono',monospace;}
+  .session-row .pax{
+    font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--ink);
+    text-align:right;
+  }
+  .session-row .pax small{font-size:10px;font-weight:400;color:var(--ink-4);text-transform:uppercase;}
+
+  /* ---------- INNOVATION (visible blocks, no hover-reveal) ---------- */
+  .innov-axis{
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;
+    color:var(--accent);text-transform:uppercase;letter-spacing:.14em;
+    line-height:1.4;
+  }
+  .innov-block{
+    display:grid;grid-template-columns:160px 1fr;gap:32px;
+    background:linear-gradient(135deg, #f4f7ff 0%, var(--surface) 60%, #fbfcff 100%);
+    border:1px solid #d8e3ff;border-radius:var(--radius-lg);
+    padding:36px 40px;margin-bottom:14px;
+    position:relative;overflow:hidden;
+  }
+  .innov-block::before{
+    content:'';position:absolute;top:0;right:0;width:240px;height:240px;
+    background:radial-gradient(circle at top right, var(--accent-glow), transparent 70%);
+    pointer-events:none;
+  }
+  .innov-block-meta{position:relative;z-index:1;}
+  .innov-block-body{position:relative;z-index:1;}
+  .innov-statement{
+    font-family:'Fraunces',serif;font-size:clamp(22px, 2.4vw, 30px);
+    font-weight:500;letter-spacing:-.02em;line-height:1.3;color:var(--ink);
+    margin-bottom:16px;
+  }
+  .innov-statement .hl{
+    background:linear-gradient(180deg, transparent 60%, var(--accent-soft) 60%);
+    color:var(--ink);font-style:italic;
+  }
+  .innov-rationale{
+    font-size:15px;color:var(--ink-3);line-height:1.65;max-width:680px;
+  }
+  .innov-rationale strong{color:var(--ink);font-weight:600;}
+
+  .innov-ops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .innov-op-card{
+    position:relative;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px;
+    transition:all .3s ease;
+  }
+  .innov-op-card:hover{transform:translateY(-2px);border-color:#cbd6ff;box-shadow:var(--shadow-md);}
+  .innov-op-card .op-num{
+    position:absolute;top:14px;right:18px;
+    font-family:'Fraunces',serif;font-size:34px;font-weight:500;
+    color:var(--accent);opacity:.18;letter-spacing:-.03em;line-height:1;
+  }
+  .innov-op-card .op-icon{
+    width:40px;height:40px;border-radius:11px;
+    background:var(--accent-soft);color:var(--accent);
+    display:grid;place-items:center;margin-bottom:14px;
+  }
+  .innov-op-card h4{
+    font-family:'Fraunces',serif;font-size:17px;font-weight:600;letter-spacing:-.015em;
+    color:var(--ink);margin-bottom:6px;line-height:1.3;
+  }
+  .innov-op-card p{
+    font-size:13px;color:var(--ink-3);line-height:1.5;
+  }
+
+  /* ---------- AGENDA (vertical timeline) ---------- */
+  .agenda-timeline{display:flex;flex-direction:column;gap:0;}
+  .agenda-row{
+    display:grid;grid-template-columns:60px 1fr;gap:24px;
+    padding-bottom:16px;
+  }
+  .agenda-row.last{padding-bottom:0;}
+  .ag-rail{
+    position:relative;display:flex;flex-direction:column;align-items:center;gap:0;
+  }
+  .ag-dot{
+    width:48px;height:48px;border-radius:50%;
+    background:linear-gradient(135deg, var(--accent) 0%, #6a8eff 100%);
+    color:#fff;display:grid;place-items:center;
+    font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;letter-spacing:.04em;
+    box-shadow:0 4px 14px var(--accent-glow);
+    flex-shrink:0;z-index:2;position:relative;
+  }
+  .ag-line{
+    flex:1;width:2px;background:linear-gradient(180deg, var(--accent) 0%, #cbd6ff 100%);
+    margin-top:4px;min-height:30px;
+  }
+  .ag-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
+    padding:24px 28px;transition:all .3s ease;
+    margin-bottom:0;
+  }
+  .ag-card:hover{border-color:#cbd6ff;box-shadow:var(--shadow-md);transform:translateX(4px);}
+  .ag-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:8px;}
+  .ag-tag{
+    font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;
+    color:var(--ink-4);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;
+  }
+  .ag-card h4{
+    font-family:'Fraunces',serif;font-size:22px;font-weight:600;letter-spacing:-.02em;
+    color:var(--ink);line-height:1.15;
+  }
+  .ag-duration{
+    font-family:'Fraunces',serif;font-size:32px;font-weight:500;letter-spacing:-.03em;
+    color:var(--accent);line-height:1;flex-shrink:0;
+  }
+  .ag-duration span{
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+    color:var(--ink-4);text-transform:uppercase;letter-spacing:.06em;margin-left:4px;
+  }
+  .ag-card p{font-size:14px;color:var(--ink-3);line-height:1.55;}
+
+  /* legacy agenda-strip (unused, kept for safety) */
+  .agenda-strip{display:none;}
+  .step{
+    padding:24px 22px;cursor:pointer;border-right:1px solid var(--line);
+    position:relative;transition:background .25s;
+  }
+  .step:last-child{border-right:none;}
+  .step:hover{background:#fbfcff;}
+  .step.active{background:linear-gradient(180deg, #f4f7ff 0%, var(--surface) 100%);}
+  .step-num{
+    font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-4);
+    text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;
+  }
+  .step.active .step-num{color:var(--accent);}
+  .step h4{font-size:16px;font-weight:600;letter-spacing:-.015em;margin-bottom:6px;}
+  .step .duration{
+    display:inline-flex;align-items:center;gap:5px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+    color:var(--ink-3);
+  }
+  .step.active .duration{color:var(--accent);}
+  .step .duration::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor;}
+  .step-detail{
+    margin-top:14px;font-size:12.5px;color:var(--ink-3);line-height:1.5;
+    max-height:0;overflow:hidden;transition:max-height .35s ease;
+  }
+  .step.active .step-detail{max-height:200px;}
+
+  /* ---------- INDUSTRY TALK ---------- */
+  .filter-bar{
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    padding:14px 18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    margin-bottom:18px;
+  }
+  .filter-bar .label{font-size:12px;color:var(--ink-4);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;}
+  .filter-group{display:flex;gap:6px;flex-wrap:wrap;}
+  .filter-chip{
+    border:1px solid var(--line);background:transparent;cursor:pointer;
+    padding:6px 12px;border-radius:999px;font-size:12px;color:var(--ink-3);
+    font-family:'JetBrains Mono',monospace;font-weight:500;letter-spacing:.02em;
+    transition:all .2s;
+  }
+  .filter-chip:hover{border-color:var(--accent);color:var(--accent);}
+  .filter-chip.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+  .talks-table{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .talk-row{
+    display:grid;grid-template-columns:90px 80px 1fr 200px 90px;gap:18px;align-items:start;
+    padding:18px 22px;border-bottom:1px solid var(--line-2);
+    transition:background .2s;
+  }
+  .talk-row:last-child{border-bottom:none;}
+  .talk-row:hover{background:#fbfcff;}
+  .talk-row.hidden{display:none;}
+  .talk-row .school-tag{
+    font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--ink);
+  }
+  .talk-row .school-tag small{display:block;font-size:10px;font-weight:400;color:var(--ink-4);margin-top:2px;}
+  .talk-row .bu-tag{
+    display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;
+    padding:3px 8px;border-radius:6px;letter-spacing:.04em;
+  }
+  .bu-VNGGames{background:#fef3c7;color:#92400e;}
+  .bu-ZPS{background:#dcfce7;color:#166534;}
+  .bu-Zalopay{background:#dbeafe;color:#1e40af;}
+  .bu-GreenNode{background:#d1fae5;color:#065f46;}
+  .bu-Corporate{background:#f3e8ff;color:#6b21a8;}
+  .talk-row .topic{font-size:14px;color:var(--ink);font-weight:500;line-height:1.45;letter-spacing:-.005em;}
+  .talk-row .topic small{display:block;font-size:12px;color:var(--ink-4);font-weight:400;margin-top:4px;}
+  .talk-row .speaker{font-size:12.5px;color:var(--ink-3);line-height:1.45;}
+  .talk-row .speaker strong{color:var(--ink);font-weight:500;display:block;font-size:13px;}
+  .talk-row .topic-tag{
+    display:inline-flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;
+    font-size:10px;font-weight:500;padding:3px 8px;border-radius:6px;
+    background:var(--accent-soft);color:var(--accent);
+  }
+
+  /* ---------- JOB TRACK ---------- */
+  .jt-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:center;}
+  .jt-stat{
+    background:linear-gradient(180deg, var(--surface), #fbfcff);
+    border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px;
+  }
+  .jt-stat .big-num{
+    font-size:64px;font-weight:600;letter-spacing:-.04em;line-height:1;
+    color:var(--accent);margin-bottom:10px;
+  }
+  .jt-stat .big-num small{font-size:18px;color:var(--ink-3);font-weight:500;margin-left:4px;}
+  .jt-stat p{font-size:14px;color:var(--ink-3);line-height:1.55;}
+  .jt-findings{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+  .jt-find{
+    display:flex;align-items:center;gap:10px;font-size:12.5px;
+    padding:8px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--line);
+  }
+  .jt-find .tag{
+    font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;
+    padding:3px 8px;border-radius:5px;
+    background:var(--ink);color:#fff;letter-spacing:.04em;
+  }
+  .jt-find .schools{color:var(--ink-3);font-family:'JetBrains Mono',monospace;font-size:11.5px;}
+
+  .chart-wrap{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
+    padding:30px;
+  }
+  .chart-wrap .chart-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+  .chart-wrap .chart-sub{font-size:11.5px;color:var(--ink-4);margin-bottom:24px;font-family:'JetBrains Mono',monospace;}
+  .bars{display:flex;flex-direction:column;gap:18px;}
+  .bar-row{display:flex;flex-direction:column;gap:6px;}
+  .bar-row .label-row{display:flex;justify-content:space-between;align-items:baseline;}
+  .bar-row .label-row .l{font-size:13px;font-weight:500;color:var(--ink);}
+  .bar-row .label-row .v{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-3);}
+  .bar-track{height:10px;background:var(--line-2);border-radius:999px;overflow:hidden;}
+  .bar-fill{
+    height:100%;border-radius:999px;
+    background:linear-gradient(90deg, var(--accent), #6a8eff);
+    width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1);
+  }
+
+  /* ---------- KPI IMPACT ---------- */
+  .impact-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  }
+  .impact-card{
+    position:relative;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px;overflow:hidden;
+    transition:all .3s;
+  }
+  .impact-card:hover{transform:translateY(-2px);border-color:var(--accent);}
+  .impact-card .ic-label{font-size:12px;color:var(--ink-4);margin-bottom:8px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;}
+  .impact-card .ic-value{font-size:32px;font-weight:600;letter-spacing:-.03em;line-height:1;}
+  .impact-card .ic-value.blue{color:var(--accent);}
+  .impact-card .ic-delta{
+    display:inline-flex;align-items:center;gap:4px;margin-top:10px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+    color:var(--green);
+  }
+  .impact-card .ic-delta.placeholder{color:var(--ink-4);}
+
+  /* ---------- BUDGET ---------- */
+  /* ---------- BUDGET ---------- */
+  .budget-top{
+    display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;
+    margin-bottom:32px;padding:32px 36px;
+    background:linear-gradient(135deg, #f4f7ff 0%, var(--surface) 100%);
+    border:1px solid var(--line);border-radius:var(--radius-lg);
+  }
+  .budget-chart{
+    display:flex;align-items:center;gap:22px;flex-shrink:0;
+  }
+  .budget-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:start;}
+  .budget-overview{
+    background:linear-gradient(135deg, #f4f7ff 0%, var(--surface) 100%);
+    border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px;
+  }
+  .budget-overview .total-label{font-size:12px;color:var(--ink-4);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+  .budget-overview .total-value{
+    font-size:56px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink);margin-bottom:8px;
+  }
+  .budget-overview .total-value small{font-size:18px;color:var(--ink-3);font-weight:500;margin-left:6px;}
+  .budget-overview .total-meta{font-size:12px;color:var(--ink-3);margin-bottom:24px;font-family:'JetBrains Mono',monospace;}
+  .donut-wrap{display:flex;align-items:center;gap:24px;}
+  .donut-svg{flex-shrink:0;}
+  .donut-legend{display:flex;flex-direction:column;gap:10px;flex:1;}
+  .donut-legend .lg-item{
+    display:flex;align-items:center;gap:10px;font-size:13px;
+  }
+  .donut-legend .lg-item .sw{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+  .donut-legend .lg-item .lg-name{flex:1;color:var(--ink-2);font-weight:500;}
+  .donut-legend .lg-item .lg-pct{font-family:'JetBrains Mono',monospace;color:var(--ink-3);font-size:11.5px;}
+
+  .budget-table{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .bt-row{
+    display:grid;grid-template-columns:130px 1fr 80px 130px 130px;gap:14px;align-items:center;
+    padding:14px 22px;border-bottom:1px solid var(--line-2);font-size:13px;
+  }
+  .bt-row:last-child{border-bottom:none;}
+  .bt-row.head{
+    background:#fafafa;font-family:'JetBrains Mono',monospace;font-size:11px;
+    text-transform:uppercase;letter-spacing:.06em;color:var(--ink-4);font-weight:500;
+    padding:11px 22px;
+  }
+  .bt-row .cat{font-weight:500;}
+  .bt-row .item{color:var(--ink-3);}
+  .bt-row .qty, .bt-row .price, .bt-row .total{
+    font-family:'JetBrains Mono',monospace;text-align:right;
+  }
+  .bt-row .total{font-weight:600;color:var(--ink);}
+  .bt-row.summary{background:#f4f7ff;font-weight:600;border-top:2px solid var(--accent);}
+  .bt-row.summary .total{color:var(--accent);font-size:15px;}
+
+  /* ---------- HR MAP ---------- */
+  .hr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .hr-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;cursor:pointer;
+    transition:all .3s;
+    overflow:hidden;
+  }
+  .hr-card:hover{border-color:#cbd6ff;}
+  .hr-card.expanded{
+    grid-column:span 3;
+    border-color:var(--accent);background:linear-gradient(180deg, #fbfcff 0%, var(--surface) 100%);
+    box-shadow:var(--shadow-md);
+  }
+  .hr-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+  .hr-card-meta{flex:1;}
+  .hr-card .hr-num{
+    font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-4);
+    letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;
+  }
+  .hr-card h3{font-size:18px;font-weight:600;letter-spacing:-.015em;margin-bottom:8px;}
+  .hr-card .hr-pic{
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-3);line-height:1.5;
+  }
+  .hr-card .hr-pic strong{color:var(--accent);font-weight:500;}
+  .hr-toggle{
+    width:28px;height:28px;border-radius:7px;background:var(--accent-soft);
+    display:grid;place-items:center;color:var(--accent);
+    transition:transform .3s;flex-shrink:0;
+  }
+  .hr-card.expanded .hr-toggle{transform:rotate(45deg);}
+  .hr-detail{
+    max-height:0;overflow:hidden;transition:max-height .4s ease;
+  }
+  .hr-card.expanded .hr-detail{max-height:600px;}
+  .hr-detail-inner{
+    padding-top:18px;margin-top:18px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--ink-2);line-height:1.65;
+  }
+  .hr-detail-inner ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .hr-detail-inner li{display:flex;gap:10px;align-items:flex-start;}
+  .hr-detail-inner li::before{
+    content:'';flex-shrink:0;width:5px;height:5px;border-radius:50%;
+    background:var(--accent);margin-top:8px;
+  }
+  .hr-detail-inner .hr-section-title{
+    font-weight:600;color:var(--ink);margin-bottom:10px;font-size:14px;
+  }
+
+  /* ---------- NEXT STEPS ROADMAP ---------- */
+  .roadmap{display:flex;flex-direction:column;gap:0;}
+  .phase-row{
+    display:grid;grid-template-columns:80px 1fr;gap:24px;
+    padding-bottom:18px;
+  }
+  .phase-row.last{padding-bottom:0;}
+  .phase-rail{
+    position:relative;display:flex;flex-direction:column;align-items:center;gap:0;
+  }
+  .phase-id{
+    width:54px;height:54px;border-radius:50%;
+    background:linear-gradient(135deg, var(--surface) 0%, #fbfcff 100%);
+    border:1.5px solid var(--accent);
+    color:var(--accent);
+    display:grid;place-items:center;
+    font-family:'Fraunces',serif;font-size:20px;font-weight:600;letter-spacing:-.02em;
+    box-shadow:0 4px 14px var(--accent-glow);
+    flex-shrink:0;z-index:2;position:relative;
+  }
+  .phase-row.dday .phase-id{
+    background:linear-gradient(135deg, #fff7d4 0%, #ffe896 100%);
+    border-color:#d97706;color:#92400e;
+  }
+  .phase-line{
+    flex:1;width:2px;background:linear-gradient(180deg, var(--accent) 0%, #cbd6ff 100%);
+    margin-top:6px;min-height:24px;
+  }
+  .phase-content{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
+    padding:20px 26px;transition:all .3s ease;
+  }
+  .phase-content:hover{border-color:#cbd6ff;box-shadow:var(--shadow-md);transform:translateX(4px);}
+  .phase-row.dday .phase-content{
+    background:linear-gradient(135deg, #fffaeb 0%, var(--surface) 100%);
+    border-color:#fde68a;
+  }
+  .phase-head{
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+    margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line-2);
+  }
+  .phase-head h3{
+    font-family:'Fraunces',serif;font-size:22px;font-weight:600;letter-spacing:-.02em;
+    color:var(--ink);line-height:1.2;
+  }
+  .phase-timeline{
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;
+    color:var(--accent);padding:6px 12px;background:var(--accent-soft);
+    border-radius:8px;letter-spacing:.04em;flex-shrink:0;
+  }
+  .phase-timeline.highlight{
+    background:#fef3c7;color:#92400e;border:1px solid #fde68a;
+  }
+  .phase-actions{
+    list-style:none;display:flex;flex-direction:column;gap:8px;
+  }
+  .phase-actions li{
+    display:flex;gap:12px;align-items:flex-start;
+    font-size:14px;color:var(--ink-2);line-height:1.55;
+  }
+  .phase-actions li::before{
+    content:'';flex-shrink:0;width:5px;height:5px;border-radius:50%;
+    background:var(--accent);margin-top:8px;
+  }
+  .phase-actions li:has(.owner){align-items:center;}
+  .phase-actions li:has(.owner)::before{display:none;}
+  .phase-actions .owner{
+    display:inline-block;flex-shrink:0;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;
+    color:var(--accent);background:var(--accent-soft);
+    padding:3px 9px;border-radius:6px;letter-spacing:.04em;
+    margin-right:10px;border:1px solid #d8e3ff;
+  }
+  .phase-substep{
+    display:flex;justify-content:space-between;gap:20px;align-items:flex-start;
+    padding:12px 0;border-bottom:1px dashed var(--line-2);
+  }
+  .phase-substep:last-child{border-bottom:none;padding-bottom:4px;}
+  .phase-substep:first-child{padding-top:4px;}
+  .phase-substep .phase-actions{flex:1;min-width:0;}
+  .phase-timeline-sub{
+    flex-shrink:0;display:inline-block;
+    font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;
+    color:var(--accent);background:var(--accent-soft);
+    padding:5px 11px;border-radius:7px;letter-spacing:.04em;
+  }
+  .criteria-block{
+    margin-top:32px;
+    background:linear-gradient(180deg, #fbfcff 0%, var(--surface) 100%);
+    border:1px solid var(--line);border-radius:var(--radius-lg);
+    padding:30px 32px;
+  }
+  .criteria-head{
+    margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line-2);
+  }
+  .criteria-eyebrow{
+    font-family:'Fraunces',serif;font-size:22px;font-weight:600;letter-spacing:-.02em;
+    color:var(--ink);
+  }
+  .criteria-table{display:flex;flex-direction:column;gap:0;}
+  .criteria-row{
+    display:grid;grid-template-columns:60px 1fr;gap:24px;align-items:center;
+    padding:18px 0;border-bottom:1px solid var(--line-2);
+    transition:background .25s;
+  }
+  .criteria-row:last-child{border-bottom:none;}
+  .criteria-row:hover{background:rgba(0, 71, 255, .02);}
+  .criteria-num{
+    font-family:'Fraunces',serif;font-size:32px;font-weight:500;letter-spacing:-.03em;
+    color:var(--accent);line-height:1;
+  }
+  .criteria-text{
+    font-size:15px;color:var(--ink-2);line-height:1.55;
+  }
+
+  /* ---------- JOB TRACK REF (legacy, unused) ---------- */
+  .jt-ref{
+    margin-top:32px;
+    background:linear-gradient(180deg, #fbfcff 0%, var(--surface) 100%);
+    border:1px solid var(--line);border-radius:var(--radius-lg);
+    padding:28px 30px;
+  }
+  .jt-ref-head{
+    display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:center;
+    margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--line-2);
+  }
+  .jt-ref-eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+    color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em;
+    margin-bottom:14px;
+  }
+  .jt-ref-eyebrow span{color:var(--accent);}
+  .jt-ref-stat{
+    font-family:'Fraunces',serif;font-size:48px;font-weight:500;letter-spacing:-.03em;
+    line-height:1;color:var(--accent);margin-bottom:10px;
+  }
+  .jt-ref-stat small{font-family:'Manrope',sans-serif;font-size:14px;color:var(--ink-3);font-weight:500;margin-left:8px;letter-spacing:0;}
+  .jt-ref-desc{font-size:14px;color:var(--ink-3);line-height:1.55;max-width:460px;}
+  .jt-ref-tags{display:flex;flex-direction:column;gap:8px;}
+  .jt-ref-bars{margin-top:0;}
+
+  /* ---------- THANK YOU ---------- */
+  .thank-you{
+    margin-top:60px;padding:90px 28px 100px;
+    text-align:center;
+    border-top:1px solid var(--line);
+    background:
+      radial-gradient(ellipse 800px 400px at 50% 0%, var(--accent-glow), transparent 60%),
+      var(--surface);
+    position:relative;z-index:2;
+  }
+  .thank-you .ty-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+    color:var(--accent);text-transform:uppercase;letter-spacing:.14em;
+    padding:6px 12px;border-radius:999px;
+    background:var(--accent-soft);border:1px solid #d8e3ff;
+    margin-bottom:24px;
+  }
+  .thank-you .ty-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);}
+  .thank-you h2{
+    font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(48px,7vw,88px);letter-spacing:-.035em;line-height:1;
+    margin-bottom:20px;color:var(--ink);
+  }
+  .thank-you h2 .ty-italic{font-style:italic;color:var(--accent);font-weight:400;}
+  .thank-you p{
+    font-size:17px;color:var(--ink-3);max-width:560px;margin:0 auto 36px;line-height:1.6;
+  }
+  .ty-meta{
+    display:inline-flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center;
+    padding:14px 24px;background:var(--surface);
+    border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow-sm);
+  }
+  .ty-meta .item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-3);}
+  .ty-meta .item strong{color:var(--ink);font-weight:600;}
+  .ty-meta .divider{width:1px;height:14px;background:var(--line);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);padding:24px 28px;
+    text-align:center;color:var(--ink-4);font-size:12px;
+    background:var(--surface);position:relative;z-index:2;
+    font-family:'JetBrains Mono',monospace;
+  }
+  footer .ft-brand{font-weight:600;color:var(--ink);font-family:'Fraunces',serif;font-size:14px;}
+
+  /* ---------- ANIMATIONS ---------- */
+  .fade-up{
+    opacity:0;transform:translateY(24px);
+    transition:opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1);
+  }
+  .fade-up.in{opacity:1;transform:none;}
+  .fade-up.delay-1{transition-delay:.08s;}
+  .fade-up.delay-2{transition-delay:.16s;}
+  .fade-up.delay-3{transition-delay:.24s;}
+  .fade-up.delay-4{transition-delay:.32s;}
+  .fade-up.delay-5{transition-delay:.40s;}
+
+  /* responsive */
+  @media (max-width: 980px){
+    .hero{grid-template-columns:1fr;gap:40px;}
+    .overview-grid, .jt-grid, .budget-grid, .jt-ref-head, .budget-top{grid-template-columns:1fr;gap:24px;}
+    .budget-top{padding:24px;}
+    .audience-groups, .innov-grid, .hr-grid, .innov-ops-grid{grid-template-columns:1fr;}
+    .phase-row{grid-template-columns:48px 1fr;gap:14px;}
+    .phase-id{width:40px;height:40px;font-size:16px;}
+    .phase-content{padding:18px 20px;}
+    .phase-head{flex-direction:column;align-items:flex-start;gap:8px;}
+    .phase-substep{grid-template-columns:1fr;gap:8px;}
+    .innov-block{grid-template-columns:1fr;padding:28px 24px;gap:18px;}
+    .content-summary{grid-template-columns:repeat(2,1fr);}
+    .tour-card{grid-template-columns:1fr;gap:14px;padding:20px;}
+    .tour-pax{text-align:left;display:flex;align-items:baseline;gap:8px;}
+    .agenda-row{grid-template-columns:48px 1fr;gap:14px;}
+    .ag-dot{width:38px;height:38px;font-size:11px;}
+    .ag-card{padding:18px 20px;}
+    .ag-head{flex-direction:column;gap:8px;}
+    .talk-row{grid-template-columns:1fr;gap:8px;}
+    .session-row{grid-template-columns:1fr;gap:6px;}
+    .bt-row{grid-template-columns:1fr;gap:6px;font-size:12px;}
+    .bt-row.head{display:none;}
+    .acc-head{grid-template-columns:1fr auto;gap:10px;}
+    .acc-summary, .acc-tour-count{display:none;}
+    nav.top .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">V</div>
+      <span>VNG · UniWeek 2026</span>
+    </div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#innovation">Innovation</a>
+      <a href="#content-direction">Topic</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#budget">Budget</a>
+      <a href="#hr">HR Map</a>
+      <a href="#next-steps">Next Steps</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div>
+      <h1 class="fade-up delay-1">
+        <span class="hero-blue">VNG University<br>Week 2026</span><br>
+        <span class="hero-italic">Planning.</span>
+      </h1>
+      <div class="info-bar fade-up delay-3">
+        <div class="item">
+          <div class="label">Timeline</div>
+          <div class="value">25/05 → 29/05 &amp; 05/06/2026</div>
+        </div>
+        <div class="item">
+          <div class="label">Ngân sách đề xuất</div>
+          <div class="value">100.9M VND <small style="color:var(--ink-4);font-weight:400">(đã có VAT)</small></div>
+        </div>
+        <div class="item">
+          <div class="label">PM Project</div>
+          <div class="value">TuyetNHN · ThoaNTK4</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kpi-stack">
+      <div class="kpi-card fade-up delay-1">
+        <div class="num"><span data-count="11">0</span></div>
+        <div class="lbl"><strong>Tours</strong></div>
+      </div>
+      <div class="kpi-card fade-up delay-2">
+        <div class="num"><span data-count="1000">0</span><span class="unit">SV</span></div>
+        <div class="lbl"><strong>Sinh viên tham dự</strong></div>
+      </div>
+      <div class="kpi-card fade-up delay-3" data-tooltip="679 → 1,000 SV">
+        <div class="num kpi-up">+<span data-count="47">0</span>%<span class="arrow">↑</span></div>
+        <div class="lbl"><strong>Growth rate</strong>vs T11/2025 (679 SV)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OVERVIEW ============ -->
+  <section id="overview">
+    <div class="section-head fade-up">
+      <span class="eyebrow">02 · Overview</span>
+      <h2 class="section-title">Định hướng <span class="accent">chương trình</span></h2>
+    </div>
+
+    <div class="overview-grid">
+      <div class="fade-up">
+        <h3 style="font-size:13px;color:var(--ink-4);text-transform:uppercase;letter-spacing:.1em;font-family:'JetBrains Mono',monospace;font-weight:500;">Objectives</h3>
+        <div class="obj-list">
+          <div class="obj-item"><div class="obj-num">01</div><div class="obj-text">Tiếp tục củng cố định vị VNG là môi trường làm việc ngành công nghệ hấp dẫn nhất dành cho sinh viên thông qua trải nghiệm thực tế tại Campus.</div></div>
+          <div class="obj-item"><div class="obj-num">02</div><div class="obj-text">Thúc đẩy hợp tác chiến lược với các trường đại học tại Tp.HCM, trọng tâm là ĐHQG-HCM.</div></div>
+          <div class="obj-item"><div class="obj-num">03</div><div class="obj-text">Tương tác trực tiếp với sinh viên, giúp hiểu về hệ sinh thái sản phẩm và cơ hội nghề nghiệp, và xây dựng talent pipeline cho các chương trình Fresher.</div></div>
+        </div>
+      </div>
+
+      <div class="fade-up delay-1">
+        <h3 style="font-size:13px;color:var(--ink-4);text-transform:uppercase;letter-spacing:.1em;font-family:'JetBrains Mono',monospace;font-weight:500;display:flex;justify-content:space-between;align-items:center;">
+          Key Metrics
+          <span class="seg-toggle" id="metricToggle" style="text-transform:none;">
+            <button class="active" data-year="2026">2026</button>
+            <button data-year="2025">2025</button>
+          </span>
+        </h3>
+        <div class="metric-grid" id="metricGrid">
+          <div class="metric-card">
+            <div class="v" data-y2026="12" data-y2025="7">12</div>
+            <div class="l">Trường đại học</div>
+          </div>
+          <div class="metric-card">
+            <div class="v blue" data-y2026="1,000" data-y2025="679">1,000</div>
+            <div class="l" data-y2026="SV tham dự · 500 SV từ ĐHQG-HCM" data-y2025="SV tham dự · 453 SV từ ĐHQG-HCM">SV tham dự · 500 SV từ ĐHQG-HCM</div>
+          </div>
+          <div class="metric-card">
+            <div class="v" data-y2026="≥ 4.7/5" data-y2025="4.8/5">≥ 4.7/5</div>
+            <div class="l" data-y2026="Student SatScore · Response rate 80%" data-y2025="Student SatScore · Response rate 86%">Student SatScore · Response rate 80%</div>
+          </div>
+          <div class="metric-card">
+            <div class="v" data-y2026="10+" data-y2025="8">10+</div>
+            <div class="l" data-y2026="Industry experts · Speaker SatScore 4.7/5 · Response 80%" data-y2025="Industry experts">Industry experts · Speaker SatScore 4.7/5 · Response 80%</div>
+          </div>
+          <div class="metric-card">
+            <div class="v" data-y2026="1,000" data-y2025="692">1,000</div>
+            <div class="l">Valid databases</div>
+          </div>
+          <div class="metric-card">
+            <div class="v" data-y2026="+800" data-y2025="+719">+800</div>
+            <div class="l">New followers L@V</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="audience-block fade-up delay-2">
+      <h3>Target Audience <span style="font-weight:400;color:var(--ink-4);font-size:13px;">— Sinh viên năm 2-3 tại TP.HCM</span></h3>
+      <div class="audience-groups">
+        <div class="aud-group priority-1">
+          <div class="lbl">Priority 01 · Core</div>
+          <h4>Khối ĐHQG-HCM</h4>
+          <div class="schools">
+            <span>UIT</span><span>HCMUS</span><span>USSH</span><span>IU</span><span>UEL</span>
+          </div>
+        </div>
+        <div class="aud-group priority-2">
+          <div class="lbl">Priority 02 · Pipeline</div>
+          <h4>MOU &amp; Fresher source</h4>
+          <div class="schools">
+            <span>HCMUTE</span><span>RMIT</span><span>UEH</span><span>FTU2</span>
+          </div>
+        </div>
+        <div class="aud-group priority-3">
+          <div class="lbl">Priority 03 · Expansion</div>
+          <h4>Đối tác mới · SMT/BU connect</h4>
+          <div class="schools">
+            <span>FUV</span><span>HSU</span><span>UEF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INNOVATION ============ -->
+  <section id="innovation">
+    <div class="section-head fade-up">
+      <span class="eyebrow">03 · 2026 Innovation</span>
+      <h2 class="section-title">Điểm mới <span class="accent">2026</span></h2>
+    </div>
+
+    <!-- Về nội dung -->
+    <div class="innov-block fade-up">
+      <div class="innov-block-meta">
+        <div class="innov-axis">01 / Về nội dung</div>
+      </div>
+      <div class="innov-block-body">
+        <p class="innov-statement">Nội dung Industry sharing được <span class="hl">lồng ghép thêm về ứng dụng AI</span> trong công việc và sản phẩm.</p>
+        <p class="innov-rationale">Nhằm mang lại giá trị hữu ích cho sinh viên trong thời đại AI và củng cố vị thế VNG — <strong style="white-space:nowrap;">công ty AI&#8209;native</strong> (EVP Pillars).</p>
+      </div>
+    </div>
+
+    <!-- Về vận hành -->
+    <div class="innov-block fade-up delay-1">
+      <div class="innov-block-meta">
+        <div class="innov-axis">02 / Về vận hành</div>
+      </div>
+      <div class="innov-block-body">
+        <p class="innov-statement">Trang bị <span class="hl">cờ dẫn tour và headset</span>.</p>
+        <p class="innov-rationale">Để nâng cao trải nghiệm sinh viên và tối ưu vận hành.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ĐỊNH HƯỚNG NỘI DUNG (merged Schedule + Industry Talk) ============ -->
+  <section id="content-direction">
+    <div class="section-head fade-up">
+      <span class="eyebrow">04 · TOPIC</span>
+      <h2 class="section-title">Định hướng <span class="accent">nội dung</span></h2>
+    </div>
+
+    <div class="filter-bar fade-up delay-1">
+      <span class="label">Filter</span>
+      <div class="filter-group" data-filter-type="bu">
+        <button class="filter-chip active" data-filter="all">All BUs</button>
+        <button class="filter-chip" data-filter="VNGGames">VNGGames</button>
+        <button class="filter-chip" data-filter="ZPS">ZPS</button>
+        <button class="filter-chip" data-filter="Zalopay">Zalopay</button>
+        <button class="filter-chip" data-filter="GreenNode">GreenNode</button>
+        <button class="filter-chip" data-filter="Corporate">CP</button>
+      </div>
+      <div style="width:1px;height:20px;background:var(--line);"></div>
+      <div class="filter-group" data-filter-type="topic">
+        <button class="filter-chip active" data-filter="all">All Topics</button>
+        <button class="filter-chip" data-filter="ai">AI</button>
+        <button class="filter-chip" data-filter="game">Game</button>
+        <button class="filter-chip" data-filter="growth">Growth/MKT</button>
+        <button class="filter-chip" data-filter="business">Business</button>
+      </div>
+    </div>
+
+    <div class="tour-list fade-up delay-1" id="tourList">
+
+      <div class="tour-card" data-bu="VNGGames" data-topic="game">
+        <div class="tour-meta">
+          <div class="tour-num">Tour 01</div>
+          <div class="tour-date">25.05<span>Sáng</span></div>
+          <div class="tour-pm">PM TuyetNHN</div>
+        </div>
+        <div class="tour-school">
+          <h3>UIT</h3>
+          <div class="tour-dept">Công nghệ phần mềm</div>
+        </div>
+        <div class="tour-content">
+          <span class="bu-tag bu-VNGGames">VNGGames</span>
+          <div class="tour-topic">Phía sau một tựa Game: Vòng đời dự án từ ý tưởng đến sản phẩm thực tế</div>
+          <div class="tour-speaker"><strong>HungBT</strong> · Principal Software Engineer, MPS</div>
+        </div>
+        <div class="tour-pax"><div class="pax-num">90</div><div class="pax-lbl">SV</div></div>
+      </div>
+
+      <div class="tour-card" data-bu="ZPS" data-topic="game">
+        <div class="tour-meta">
+          <div class="tour-num">Tour 02</div>
+          <div class="tour-date">25.05<span>Chiều</span></div>
+          <div class="tour-pm">PM ThoaNTK4</div>
+        </div>
+        <div class="tour-school">
+          <h3>HCMUS</h3>
+          <div class="tour-dept">Công nghệ thông tin</div>
+        </div>
+        <div class="tour-content">
+          <span class="bu-tag bu-ZPS">ZPS</span>
+          <div class="tour-topic">Quy trình phát triển sản phẩm Game từ Việt Nam vươn ra Thế giới</div>
+          <div class="tour-speaker"><strong>TBU</strong> · Speaker từ ZPS</div>
+        </div>
+        <div class="tour-pax"><div class="pax-num">100</div><div class="pax-lbl">SV</div></div>
+      </div>
+
+      <div class="tour-card" data-bu="Zalopay" data-topic="growth">
+        <div class="tour-meta">
+          <div class="tour-num">Tour 03</div>
+          <div class="tour-date">26.05<span>Sáng</span></div>
+          <div class="tour-pm">PM HoaiDT2</div>
+        </div>
+        <div class="tour-school">
+          <h3>UEF</h3>
+          <div class="tour-dept">E-commerce, Digital Marketing</div>
+        </div>
+        <div class="tour-content">
+          <span class="bu-tag bu-Zalopay">Zalopay</span>
+          <div class="tour-topic">Chiến lược "Go-to-Market" và hành trình tăng trưởng người dùng tại thị trường trong nước &amp; quốc tế</div>
+          <div class="tour-speaker"><strong>KhaiLT</strong> · Growth Marketing Lead</div>
+        </div>
+        <div class="tour-pax"><div class="pax-num">100</div><div class="pax-lbl">SV</div></div>
+      </div>
+
+      <div class="tour-card combined" data-bu="GreenNode" data-topic="ai">
+        <div class="tour-meta">
+          <div class="tour-num">Tour 04 <span class="combined-pill">Combined</span></div>
+          <div class="tour-date">26.05<span>Chiều</span></div>
+          <div class="tour-pm">PM BinhNTC + ChauLNB2</div>
+        </div>
+        <div class="tour-school">
+          <h3>RMIT + FUV</h3>
+          <div class="tour-dept">RMIT · Marketing &amp; Communication, Fintech<br>FUV · Mixed (TBU)</div>
+        </div>
+        <div class="tour-content">
+          <span class="bu-tag bu-GreenNode">GreenNode</span>
+          <div class="tour-topic">Hành trình xây dựng sản phẩm trên nền tảng hạ tầng AI và Cloud</div>
+          <div class="tour-speaker"><strong>DuongMH</strong> · Product Manager</div>
+        </div>
+        <div class="tour-pax"><div class="pax-num">100</div><div class="pax-lbl">70 + 30 SV</div></div>
+      </div>
+
+      <div class="tour-card" data-bu="ZPS" data-topic="game">
+        <div class="tour-meta">
+          <div class="tour-num">Tour 05</div>
+          <div class="tour-date">27.05<span>Sáng</span></div>
+          <div class="tour-pm">PM MaiLN3</div>
+        </div>
+        <div class="tour-school">
+          <h3>HCMUTE</h3>
+          <div class="tour-dept">Công nghệ thông tin</div>
+        </div>
+        <div class="tour-content">
+          <span class="bu-tag bu-ZPS">ZPS</span>
+          <div class="tour-topic">Thiết kế Tựa Game hàng triệu người chơi toàn cầu</div>
+          <div class="tour-speaker"><strong>TBU</strong> · Speaker từ ZPS</div>
+        </div>
+        <div class="tour-pax"><div class="pax-num">100</div><div class="pax-lbl">SV</div></div>
+      </div>
+
+      <div class="tour-card" data-bu="Corporate" data-topic="business">
+        <div class="tour-meta">
+          <div class="tour-num">Tour 06</div>
+          <div class="tour-date">27.05<span>Chiều</span></div>
+          <div class="tour-pm">PM ChauLNB2</div>
+        </div>
+        <div class="tour-school">
+          <h3>USSH</h3>
+          <div class="tour-dept">Báo chí · Truyền thông đa phương tiện · Quan hệ quốc tế</div>
+        </div>
+        <div class="tour-content">
+          <span class="bu-tag bu-Corporate">CP</span>
+          <div class="tour-topic">Xây dựng thương hiệu và phát triển đối tác tại Tập đoàn Công nghệ</div>
+          <div class="tour-speaker"><strong>ThaoTXN</strong> · Director of HR &amp; Communication</div>
+        </div>
+        <div class="tour-pax"><div class="pax-num">100</div><div class="pax-lbl">SV</div></div>
+      </div>
+
+      <div class="tour-card" data-bu="VNGGames" data-topic="game">
+        <div class="tour-meta">
+          <div class="tour-num">Tour 07</div>
+          <div class="tour-date">28.05<span>Sáng</span></div>
+          <div class="tour-pm">PM TuyetNHN</div>
+        </div>
+        <div class="tour-school">
+          <h3>UEH</h3>
+          <div class="tour-dept">Công nghệ &amp; Đổi mới sáng tạo · Marketing · Quản trị kinh doanh</div>
+        </div>
+        <div class="tour-content">
+          <span class="bu-tag bu-VNGGames">VNGGames</span>
+          <div class="tour-topic">Phát hành sản phẩm Game: thu hút, giữ chân người dùng</div>
+          <div class="tour-speaker"><strong>NghiaNT9 / HungTT3</strong> · Product Group Manager</div>
+        </div>
+        <div class="tour-pax"><div class="pax-num">120</div><div class="pax-lbl">SV</div></div>
+      </div>
+
+      <div class="tour-card" data-bu="GreenNode" data-topic="ai">
+        <div class="tour-meta">
+          <div class="tour-num">Tour 08</div>
+          <div class="tour-date">28.05<span>Chiều</span></div>
+          <div class="tour-pm">PM ToanLM</div>
+        </div>
+        <div class="tour-school">
+          <h3>IU</h3>
+          <div class="tour-dept">Công nghệ thông tin · Kinh tế (open)</div>
+        </div>
+        <div class="tour-content">
+          <span class="bu-tag bu-GreenNode">GreenNode</span>
+          <div class="tour-topic">Nghiên cứu và Phát triển các mô hình Applied AI</div>
+          <div class="tour-speaker"><strong>ThuVT</strong> · Associate AI Manager</div>
+        </div>
+        <div class="tour-pax"><div class="pax-num">100</div><div class="pax-lbl">SV</div></div>
+      </div>
+
+      <div class="tour-card" data-bu="Zalopay" data-topic="business">
+        <div class="tour-meta">
+          <div class="tour-num">Tour 09</div>
+          <div class="tour-date">29.05<span>Sáng</span></div>
+          <div class="tour-pm">PM HoaiDT2</div>
+        </div>
+        <div class="tour-school">
+          <h3>FTU2</h3>
+          <div class="tour-dept">Mixed</div>
+        </div>
+        <div class="tour-content">
+          <span class="bu-tag bu-Zalopay">Zalopay</span>
+          <div class="tour-topic">Thanh toán xuyên biên giới: Chiến lược hợp tác &amp; vận hành quốc tế của Zalopay</div>
+          <div class="tour-speaker"><strong>AnhNTP7</strong> · Associate Manager, Global Partnership</div>
+        </div>
+        <div class="tour-pax"><div class="pax-num">120</div><div class="pax-lbl">SV</div></div>
+      </div>
+
+      <div class="tour-card" data-bu="Corporate" data-topic="business">
+        <div class="tour-meta">
+          <div class="tour-num">Tour 10</div>
+          <div class="tour-date">29.05<span>Chiều</span></div>
+          <div class="tour-pm">PM ToanLM</div>
+        </div>
+        <div class="tour-school">
+          <h3>UEL</h3>
+          <div class="tour-dept">Kế toán-Kiểm toán · Kinh tế quốc tế · TMĐT · Luật</div>
+        </div>
+        <div class="tour-content">
+          <span class="bu-tag bu-Corporate">CP</span>
+          <div class="tour-topic">Cơ hội &amp; bức tranh ngành Kế toán-Kiểm toán tại Tập đoàn Công nghệ</div>
+          <div class="tour-speaker"><strong>TinLT4</strong> · Head of Group Accounting Services</div>
+        </div>
+        <div class="tour-pax"><div class="pax-num">120</div><div class="pax-lbl">SV</div></div>
+      </div>
+
+      <div class="tour-card" data-bu="Zalopay" data-topic="business">
+        <div class="tour-meta">
+          <div class="tour-num">Tour 11</div>
+          <div class="tour-date">05.06<span>Chiều</span></div>
+          <div class="tour-pm">PM ThoaNTK4</div>
+        </div>
+        <div class="tour-school">
+          <h3>HSU</h3>
+          <div class="tour-dept">Mixed (TBU)</div>
+        </div>
+        <div class="tour-content">
+          <span class="bu-tag bu-Zalopay">Zalopay</span>
+          <div class="tour-topic">Topic TBU</div>
+          <div class="tour-speaker"><strong>TBU</strong> · Speaker đang xác nhận</div>
+        </div>
+        <div class="tour-pax"><div class="pax-num">100</div><div class="pax-lbl">SV</div></div>
+      </div>
+
+    </div>
+
+    <!-- Tiêu chí đề xuất chủ đề -->
+    <div class="criteria-block fade-up delay-2">
+      <div class="criteria-head">
+        <div class="criteria-eyebrow">Tiêu chí đề xuất chủ đề</div>
+      </div>
+      <div class="criteria-table">
+        <div class="criteria-row">
+          <div class="criteria-num">01</div>
+          <div class="criteria-text">Nội dung được thiết kế theo ngành học, cân bằng giữa insight của sinh viên và định hướng từ VNG.</div>
+        </div>
+        <div class="criteria-row">
+          <div class="criteria-num">02</div>
+          <div class="criteria-text">Lồng ghép yếu tố AI, phản ánh xu hướng và cách VNG ứng dụng trong công việc và sản phẩm.</div>
+        </div>
+        <div class="criteria-row">
+          <div class="criteria-num">03</div>
+          <div class="criteria-text">Dựa trên job track tại VNG và learning points từ các mùa trước.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AGENDA ============ -->
+  <section id="agenda">
+    <div class="section-head fade-up">
+      <span class="eyebrow">05 · Program Agenda</span>
+      <h2 class="section-title">Flow <span class="accent">chương trình</span></h2>
+    </div>
+
+    <div class="agenda-timeline fade-up" id="agendaTimeline">
+      <div class="agenda-row">
+        <div class="ag-rail"><div class="ag-dot">01</div><div class="ag-line"></div></div>
+        <div class="ag-card">
+          <div class="ag-head">
+            <div>
+              <div class="ag-tag">Section 01</div>
+              <h4>VNG Introduction</h4>
+            </div>
+            <div class="ag-duration">15<span>phút</span></div>
+          </div>
+          <p>Tổng quan về VNG, hệ sinh thái sản phẩm và văn hóa công ty.</p>
+        </div>
+      </div>
+
+      <div class="agenda-row">
+        <div class="ag-rail"><div class="ag-dot">02</div><div class="ag-line"></div></div>
+        <div class="ag-card">
+          <div class="ag-head">
+            <div>
+              <div class="ag-tag">Section 02</div>
+              <h4>Industry Talk + Q&amp;A</h4>
+            </div>
+            <div class="ag-duration">45<span>phút</span></div>
+          </div>
+          <p>Tổng quan về ngành nghề, kỹ năng chuyên môn. Ứng dụng AI trong công việc.</p>
+        </div>
+      </div>
+
+      <div class="agenda-row">
+        <div class="ag-rail"><div class="ag-dot">03</div><div class="ag-line"></div></div>
+        <div class="ag-card">
+          <div class="ag-head">
+            <div>
+              <div class="ag-tag">Section 03</div>
+              <h4>HR Sharing</h4>
+            </div>
+            <div class="ag-duration">15<span>phút</span></div>
+          </div>
+          <p>Chia sẻ về cơ hội việc làm tại VNG và kỹ năng cốt lõi sinh viên cần trang bị trong thời đại AI.</p>
+        </div>
+      </div>
+
+      <div class="agenda-row">
+        <div class="ag-rail"><div class="ag-dot">04</div><div class="ag-line"></div></div>
+        <div class="ag-card">
+          <div class="ag-head">
+            <div>
+              <div class="ag-tag">Section 04</div>
+              <h4>Campus Tour</h4>
+            </div>
+            <div class="ag-duration">60<span>phút</span></div>
+          </div>
+          <p>Tham quan VNG Campus · BU Engagement (optional).</p>
+        </div>
+      </div>
+
+      <div class="agenda-row last">
+        <div class="ag-rail"><div class="ag-dot">05</div></div>
+        <div class="ag-card">
+          <div class="ag-head">
+            <div>
+              <div class="ag-tag">Section 05</div>
+              <h4>Wrap-up</h4>
+            </div>
+            <div class="ag-duration">20<span>phút</span></div>
+          </div>
+          <p>Điền feedback form &amp; nhận quà · Chụp ảnh lưu niệm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BUDGET ============ -->
+  <section id="budget">
+    <div class="budget-top fade-up">
+      <div class="section-head" style="margin-bottom:0;">
+        <span class="eyebrow">06 · Budget</span>
+        <h2 class="section-title">Ngân sách · <span class="accent">100.9M VND</span></h2>
+        <p class="section-sub">Cost-per-pax ~84K.</p>
+      </div>
+      <div class="budget-chart">
+        <svg class="donut-svg" width="160" height="160" viewBox="0 0 160 160">
+          <circle cx="80" cy="80" r="64" fill="none" stroke="#ededed" stroke-width="20"/>
+          <circle id="d1" cx="80" cy="80" r="64" fill="none" stroke="#0047ff" stroke-width="20"
+            stroke-dasharray="0 999" stroke-dashoffset="0" transform="rotate(-90 80 80)" stroke-linecap="butt"/>
+          <circle id="d2" cx="80" cy="80" r="64" fill="none" stroke="#6a8eff" stroke-width="20"
+            stroke-dasharray="0 999" stroke-dashoffset="0" transform="rotate(-90 80 80)" stroke-linecap="butt"/>
+        </svg>
+        <div class="donut-legend">
+          <div class="lg-item">
+            <span class="sw" style="background:#0047ff;"></span>
+            <span class="lg-name">POSM</span>
+            <span class="lg-pct">75.7M · 75%</span>
+          </div>
+          <div class="lg-item">
+            <span class="sw" style="background:#6a8eff;"></span>
+            <span class="lg-name">Operation</span>
+            <span class="lg-pct">25.2M · 25%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="budget-table fade-up delay-1">
+      <div class="bt-row head">
+        <div>Hạng mục</div><div>Chi tiết</div><div>SL</div><div>Đơn giá</div><div>Tổng (VAT)</div>
+      </div>
+      <div class="bt-row">
+        <div class="cat">POSM</div><div class="item">POSM Mass</div>
+        <div class="qty">1,200</div><div class="price">50,000 đ</div><div class="total">60,000,000 đ</div>
+      </div>
+      <div class="bt-row">
+        <div class="cat"></div><div class="item">POSM kho · Quà speaker, thầy cô, minigame</div>
+        <div class="qty">1</div><div class="price">15,725,000 đ</div><div class="total">15,725,000 đ</div>
+      </div>
+      <div class="bt-row">
+        <div class="cat">Operation</div><div class="item">Teabreak sinh viên</div>
+        <div class="qty">1,200</div><div class="price">20,000 đ</div><div class="total">24,000,000 đ</div>
+      </div>
+      <div class="bt-row">
+        <div class="cat"></div><div class="item">Ly giấy</div>
+        <div class="qty">1,200</div><div class="price">500 đ</div><div class="total">600,000 đ</div>
+      </div>
+      <div class="bt-row">
+        <div class="cat"></div><div class="item">Cờ tour guide</div>
+        <div class="qty">6</div><div class="price">100,000 đ</div><div class="total">600,000 đ</div>
+      </div>
+      <div class="bt-row">
+        <div class="cat"></div><div class="item">Headset</div>
+        <div class="qty">100</div><div class="price">—</div><div class="total">0 đ</div>
+      </div>
+      <div class="bt-row summary">
+        <div class="cat">Total</div><div class="item">Đã bao gồm VAT</div>
+        <div class="qty">—</div><div class="price">~84,104 ₫/pax</div><div class="total">100,925,000 đ</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HR MAP ============ -->
+  <section id="hr">
+    <div class="section-head fade-up" style="margin-bottom:32px;">
+      <span class="eyebrow">07 · HR Map</span>
+    </div>
+
+    <div class="hr-grid fade-up" id="hrGrid">
+      <div class="hr-card" data-hr="0">
+        <div class="hr-card-head">
+          <div class="hr-card-meta">
+            <div class="hr-num">01 · EB-TE</div>
+            <h3>PM Project</h3>
+            <div class="hr-pic"><strong>TuyetNHN</strong> · ThoaNTK4 (supervise)</div>
+          </div>
+          <div class="hr-toggle"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="hr-detail"><div class="hr-detail-inner">
+          <div class="hr-section-title">Quản lý tổng thể chương trình tour</div>
+          <ul>
+            <li>Thiết lập mục tiêu &amp; KPIs toàn chương trình, theo dõi và đảm bảo kết quả cuối cùng</li>
+            <li>Xây dựng khung nội dung tổng thể (agenda, flow…) và thống nhất với các bên liên quan</li>
+            <li>Chuẩn bị tài liệu vận hành chung (brief tổng, checklist, hướng dẫn onsite, MC script, media guide)</li>
+            <li>Quản lý ngân sách toàn chương trình và xử lý rủi ro phát sinh</li>
+            <li>Điều phối các team, đảm bảo tiến độ &amp; chất lượng công việc</li>
+            <li>Tổng hợp báo cáo &amp; đánh giá hiệu quả chương trình sau khi kết thúc</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="hr-card" data-hr="1">
+        <div class="hr-card-head">
+          <div class="hr-card-meta">
+            <div class="hr-num">02 · EB Accounts</div>
+            <h3>PM Tour</h3>
+            <div class="hr-pic"><strong>ThoaNTK4 · ToanLM · TuyetNHN · HoaiDT2 · ChauLNB2 · BinhNTC · MaiLN3</strong></div>
+          </div>
+          <div class="hr-toggle"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="hr-detail"><div class="hr-detail-inner">
+          <div class="hr-section-title">Điều phối chính các hoạt động tại mỗi tour</div>
+          <ul>
+            <li>Phối hợp với đầu mối Trường, đảm bảo số lượng SV tham dự &amp; chất lượng chương trình</li>
+            <li>Kết nối với các BU triển khai BU Engagement (optional)</li>
+            <li>Đầu mối điều phối stakeholders onsite (BU speaker, HRBP/TA, BIE, CBC, Creative, Event, IT…)</li>
+            <li>Xây dựng nội dung chi tiết từng tour, phối hợp với TA Corp, HRBP, BUs</li>
+            <li>Phân công công việc cho onsite team, brief rõ vị trí &amp; nhiệm vụ</li>
+            <li>Quản lý ngân sách tour, theo dõi tiến độ &amp; báo cáo cho PM Project</li>
+            <li>Đảm bảo chỉ số mục tiêu từng tour: số lượng SV, traffic, tương tác, mức độ hài lòng</li>
+            <li>Gửi email wrap-up, tổng hợp báo cáo, đối soát số liệu sau tour</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="hr-card" data-hr="2">
+        <div class="hr-card-head">
+          <div class="hr-card-meta">
+            <div class="hr-num">03 · EB-BC / B&amp;C</div>
+            <h3>Communication</h3>
+            <div class="hr-pic"><strong>TrinhMT</strong> (lead) · MaiLN3</div>
+          </div>
+          <div class="hr-toggle"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="hr-detail"><div class="hr-detail-inner">
+          <div class="hr-section-title">Quản lý truyền thông sự kiện trên các kênh</div>
+          <ul>
+            <li>Lập kế hoạch &amp; triển khai truyền thông trên L@V, đề xuất minigame tăng followers</li>
+            <li>Theo dõi traffic &amp; engagement trên các kênh owned media</li>
+            <li>Phối hợp BIE thiết kế POSM, standee, welcome screen</li>
+            <li>Thu thập logo trường &amp; material cần thiết cho nội dung truyền thông</li>
+            <li>Brief media (góc quay, chất lượng) &amp; book trello để BIE sắp xếp</li>
+            <li>Lọc hình sự kiện từng tour, retouch gửi đối tác &amp; recap</li>
+            <li>Setup welcome screen, gửi email stakeholders nội bộ</li>
+            <li>Leverage thông tin trên kênh nội bộ (MondayBuzz, myVNG…)</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="hr-card" data-hr="3">
+        <div class="hr-card-head">
+          <div class="hr-card-meta">
+            <div class="hr-num">04 · EB Accounts</div>
+            <h3>Speaker &amp; BU</h3>
+            <div class="hr-pic"><strong>EB Accounts team</strong></div>
+          </div>
+          <div class="hr-toggle"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="hr-detail"><div class="hr-detail-inner">
+          <div class="hr-section-title">Quản lý speaker &amp; BU engagement</div>
+          <ul>
+            <li>TE phụ trách đầu mối phối hợp với TA Corp về nội dung chia sẻ &amp; nhân sự</li>
+            <li>EB Accounts gửi thư mời speaker từ BU và follow-up</li>
+            <li>Rehearsal cùng speaker trước ít nhất 2 ngày để đảm bảo nội dung &amp; flow</li>
+            <li>Follow-up cùng BU cho hoạt động BU Engagement trong tour</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="hr-card" data-hr="4">
+        <div class="hr-card-head">
+          <div class="hr-card-meta">
+            <div class="hr-num">05 · BIE-Creative</div>
+            <h3>Media &amp; Design</h3>
+            <div class="hr-pic"><strong>as assigned on Trello</strong></div>
+          </div>
+          <div class="hr-toggle"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="hr-detail"><div class="hr-detail-inner">
+          <div class="hr-section-title">Sản xuất ấn phẩm &amp; ghi hình</div>
+          <ul>
+            <li><strong>Design:</strong> Thiết kế ấn phẩm truyền thông &amp; POSM phối hợp với EB-BC</li>
+            <li><strong>Media:</strong> Chụp ảnh các khoảnh khắc theo brief (góc máy, thời điểm, vị trí)</li>
+            <li>Đảm bảo có mặt đúng giờ, output đúng chuẩn yêu cầu</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="hr-card" data-hr="5">
+        <div class="hr-card-head">
+          <div class="hr-card-meta">
+            <div class="hr-num">06 · BIE-Event</div>
+            <h3>Operation</h3>
+            <div class="hr-pic"><strong>ChauNDM</strong> · CBC support</div>
+          </div>
+          <div class="hr-toggle"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="hr-detail"><div class="hr-detail-inner">
+          <div class="hr-section-title">Vận hành chương trình &amp; thanh toán</div>
+          <ul>
+            <li>Đầu mối với các team (AF, IT…) đảm bảo vận hành sự kiện suôn sẻ</li>
+            <li>Phối hợp IT triển khai hoạt động Face ID cho sinh viên</li>
+            <li>Quản lý quà tặng, POSM, thẻ ra vào và setup không gian sự kiện</li>
+            <li>Tổng hợp đầy đủ chứng từ và hóa đơn theo từng hạng mục</li>
+            <li>Thực hiện thanh toán đúng quy trình &amp; thời hạn</li>
+            <li>Theo dõi chi phí thực tế, đảm bảo không phát sinh ngoài ngân sách</li>
+            <li>Technical &amp; Room: AF Services, Helpdesk, PhiBT cho danh sách/bảo vệ</li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEXT STEPS ============ -->
+  <section id="next-steps">
+    <div class="section-head fade-up">
+      <span class="eyebrow">08 · Next Steps</span>
+      <h2 class="section-title">Roadmap &amp; <span class="accent">Action Plan</span></h2>
+    </div>
+
+    <div class="roadmap fade-up">
+
+      <div class="phase-row">
+        <div class="phase-rail">
+          <div class="phase-id">01</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-head">
+            <h3>Overall planning &amp; Partnership</h3>
+            <div class="phase-timeline">01/04 — 20/04</div>
+          </div>
+          <ul class="phase-actions">
+            <li>Xác định timeline các Trường tham gia</li>
+            <li>Xác định stakeholders (comms, POSM, partnership,..)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-row">
+        <div class="phase-rail">
+          <div class="phase-id">02</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-head">
+            <h3>Detailed deliverables &amp; Key message</h3>
+            <div class="phase-timeline">20/04 — 08/05</div>
+          </div>
+          <ul class="phase-actions">
+            <li>Finalize plan &amp; proposal</li>
+            <li>Finalize proposal và Kick-off project team</li>
+            <li>HR Map briefing &amp; phân công đầu việc</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-row">
+        <div class="phase-rail">
+          <div class="phase-id">03</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-head">
+            <h3>Operations &amp; BU Collaboration</h3>
+            <div class="phase-timeline">10/05 — 15/05</div>
+          </div>
+          <ul class="phase-actions">
+            <li><span class="owner">EB accounts</span> Chốt Speaker/BU join hoạt động với các Trường</li>
+            <li><span class="owner">Communication</span> Chốt Key mess + agenda chung mùa 01 + finalize key visual &amp; brief Creative</li>
+            <li><span class="owner">BIE-Event</span> sản xuất POSM và chạy e-form</li>
+            <li>Nhận feedback và revise</li>
+            <li>Key account cập nhật chi tiết thông tin Agenda + Budget Plan + key activities/BUs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-row">
+        <div class="phase-rail">
+          <div class="phase-id">04</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-head">
+            <h3>Ready for on-site</h3>
+            <div class="phase-timeline">16/05 — 24/05</div>
+          </div>
+          <ul class="phase-actions">
+            <li>Triển khai communication plan</li>
+            <li>Chốt POSM, quà tặng, vendor tea-break</li>
+            <li>Finalize materials: slide, MC script, tourguide script</li>
+            <li>Reminder &amp; final alignment với stakeholders</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-row dday">
+        <div class="phase-rail">
+          <div class="phase-id">05</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-head">
+            <h3>On-site execution</h3>
+            <div class="phase-timeline highlight">25/05 — 29/05 &amp; 05/06</div>
+          </div>
+          <ul class="phase-actions">
+            <li>Triển khai University Tour theo timeline</li>
+            <li>Điều phối vận hành onsite và hỗ trợ speakers/BUs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-row last">
+        <div class="phase-rail">
+          <div class="phase-id">06</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-head">
+            <h3>Wrap up</h3>
+            <div class="phase-timeline">01/06 — 10/06</div>
+          </div>
+          <ul class="phase-actions">
+            <li>Tổng hợp feedback &amp; retrospective</li>
+            <li>Báo cáo kết quả chương trình &amp; key learnings</li>
+            <li>Gửi thư cảm ơn speakers/partners</li>
+            <li>Tổng hợp hình ảnh &amp; truyền thông recap</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<section class="thank-you fade-up">
+  <h2>Thank you for <span class="ty-italic">watching.</span></h2>
+  <p>Cảm ơn team đã dành thời gian xem qua kế hoạch <strong>VNG University Week 2026</strong>. Rất mong nhận được góp ý và sự đồng hành của team để chương trình được triển khai hiệu quả.</p>
+</section>
+
+<footer>
+  <div class="ft-brand">VNG University Week 2026</div>
+  <div style="margin-top:8px;font-size:11px;letter-spacing:.04em;">Planning Document · Employer Branding Team · 2026</div>
+</footer>
+
+<script>
+  // ===== Counter animation =====
+  function animateCounter(el, target, decimals=0, duration=1400){
+    const start = performance.now();
+    const startVal = 0;
+    function frame(now){
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = startVal + (target - startVal) * eased;
+      el.textContent = decimals > 0 ? val.toFixed(decimals) : Math.floor(val).toLocaleString('en-US');
+      if (t < 1) requestAnimationFrame(frame);
+      else el.textContent = decimals > 0 ? Number(target).toFixed(decimals) : Number(target).toLocaleString('en-US');
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // ===== Intersection Observer =====
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        // counters
+        e.target.querySelectorAll('[data-count]').forEach(c=>{
+          if(!c.dataset.done){
+            const dec = parseInt(c.dataset.decimals || '0', 10);
+            animateCounter(c, parseFloat(c.dataset.count), dec);
+            c.dataset.done = '1';
+          }
+        });
+        // bars
+        e.target.querySelectorAll('.bar-fill').forEach(b=>{
+          if(!b.dataset.done){
+            requestAnimationFrame(()=>{ b.style.width = b.dataset.w + '%'; });
+            b.dataset.done='1';
+          }
+        });
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+  // ===== Donut animate =====
+  function animateDonut(){
+    const C = 2 * Math.PI * 64; // ~402.12
+    const d1 = document.getElementById('d1');
+    const d2 = document.getElementById('d2');
+    const p1 = 0.7503; // POSM share
+    d1.style.transition = 'stroke-dasharray 1.4s cubic-bezier(.2,.8,.2,1)';
+    d2.style.transition = 'stroke-dasharray 1.4s cubic-bezier(.2,.8,.2,1) .2s';
+    d2.setAttribute('stroke-dashoffset', String(-p1 * C));
+    d1.setAttribute('stroke-dasharray', `0 ${C}`);
+    d2.setAttribute('stroke-dasharray', `0 ${C}`);
+    requestAnimationFrame(()=>{
+      d1.setAttribute('stroke-dasharray', `${p1*C} ${C}`);
+      d2.setAttribute('stroke-dasharray', `${(1-p1)*C} ${C}`);
+    });
+  }
+  // observe donut
+  const donutObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ animateDonut(); donutObs.disconnect(); }
+    });
+  }, { threshold: .3 });
+  donutObs.observe(document.getElementById('budget'));
+
+  // ===== Accordion =====
+  document.querySelectorAll('.acc-head').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const item = btn.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+
+  // ===== Industry Talk filters =====
+  let activeBu = 'all';
+  let activeTopic = 'all';
+  document.querySelectorAll('.filter-bar .filter-group').forEach(group=>{
+    const type = group.dataset.filterType;
+    group.querySelectorAll('.filter-chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        group.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+        chip.classList.add('active');
+        if(type==='bu') activeBu = chip.dataset.filter;
+        else activeTopic = chip.dataset.filter;
+        applyFilters();
+      });
+    });
+  });
+  function applyFilters(){
+    document.querySelectorAll('#tourList .tour-card').forEach(row=>{
+      const buMatch = activeBu==='all' || row.dataset.bu === activeBu;
+      const topicMatch = activeTopic==='all' || row.dataset.topic === activeTopic;
+      row.classList.toggle('hidden', !(buMatch && topicMatch));
+    });
+  }
+
+  // ===== Metric / KPI year toggle =====
+  function bindYearToggle(toggleId, scope){
+    const seg = document.getElementById(toggleId);
+    if(!seg) return;
+    seg.querySelectorAll('button').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        seg.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+        b.classList.add('active');
+        const year = b.dataset.year;
+        scope.querySelectorAll('[data-y2025], [data-y2026]').forEach(el=>{
+          const target = year==='2025' ? el.dataset.y2025 : el.dataset.y2026;
+          if(target !== undefined) el.textContent = target;
+        });
+        // hide growth indicator in 2025
+        scope.querySelectorAll('[data-show2026]').forEach(el=>{
+          el.style.opacity = year==='2025' ? '.3' : '1';
+        });
+      });
+    });
+  }
+  bindYearToggle('metricToggle', document.getElementById('metricGrid'));
+
+  // ===== Audience group hover highlight =====
+  document.querySelectorAll('.aud-group').forEach(g=>{
+    g.addEventListener('mouseenter', ()=>{
+      document.querySelectorAll('.aud-group').forEach(x=>{
+        if(x !== g) x.style.opacity = '.5';
+      });
+    });
+    g.addEventListener('mouseleave', ()=>{
+      document.querySelectorAll('.aud-group').forEach(x=> x.style.opacity = '1');
+    });
+  });
+
+  // ===== HR map expand =====
+  document.querySelectorAll('.hr-card').forEach(c=>{
+    c.addEventListener('click', ()=>{
+      const isOpen = c.classList.contains('expanded');
+      document.querySelectorAll('.hr-card').forEach(x=>x.classList.remove('expanded'));
+      if(!isOpen) c.classList.add('expanded');
+    });
+  });
+</script>
+</body>
+</html>
